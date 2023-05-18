@@ -9,59 +9,58 @@ void returningCustomer();
 void newCustomer();
 void employee();
 
-// Global Variables 
+// Global Variables
 bool invalid;
 
 int main()
 {
     char customerType;
     
-    cout << "Are you a returning customer or a new customer?" 
-    << "Please type in R for returning customer and N for new customer. " << endl;
+        do
+        {
+            cout << "Are you a returning customer or a new customer? "
+         << "Please type in R for returning customer and N for new customer. " << endl;
     cin >> customerType;
 
-    if (customerType == 'R' || 'r')
+    if (customerType == 'R' || customerType == 'r')
     {
-        invalid == false;
+        invalid = false;
         void returningCustomer();
     }
-    else if (customerType == 'N' || 'n')
+    else if (customerType == 'N' || customerType == 'n')
     {
-        invalid == false;
+        invalid = false;
         void newCustomer();
     }
-    else if (customerType == 'N' || 'n')
-    {
-        invalid == false;
-        void employee();
-    }
-    else
-    {
-        invalid == true;
-        while (invalid == true)
+        else if (customerType == 'E' || customerType == 'e')
         {
-            cout << "Please enter the appropraite letters."
-            << "Are you a returning customer or a new customer?" 
-            << "Please type in R for returning customer and N for new customer. " << endl;
-            cin >> customerType;
+            invalid = false;
+            void employee();
         }
-    }
+        else
+        {
+            invalid = true;
+            cout << "ERROR! Please enter the correct letters" << endl;
+        }
+        }while (invalid == true);
 }
 
 void login()
 {
-    char username, password;
-    
+    string username, password;
+
     cout << "Please enter your login and password " << endl;
-    
-    cout << "Username: ";
-    cin >> username;
     cout << endl;
+
+    cout << "Username: ";
+    getline(cin, username); cin.ignore(); cin.get();
 
     cout << "Password: ";
-    cin >> password; 
+    getline(cin, password); cin.ignore(); cin.get();
     cout << endl;
 
+    cout << "Awesome! Thanks for loginning in with your username and password";
+    return;
 }
 
 void returningCustomer()
@@ -71,28 +70,52 @@ void returningCustomer()
 
 void newCustomer()
 {
-    string username; 
-    int length;  
+    string username;
+    int length, numbers, specialCharacter;
 
     cout << "Usernames will need to meet the following requirements: " << endl;
-    cout << "1. Between seven to ten characters long" << endl 
-    << "2. One special character" << endl 
-    << "3. Two numbers" << endl;
+    cout << "1. Between seven to ten characters long" << endl
+         << "2. One special character" << endl
+         << "3. Two numbers" << endl;
 
     getline(cin, username);
     length = username.length();
 
+    for (int i = 0; i < length; i++)
+    {
+    }
+
     if (length < 7 || length > 10)
     {
-        invalid == true;
+        invalid = true;
     }
-    
-    
+    else if (numbers < 2)
+    {
+        invalid = true;
+    }
+    else if (specialCharacter < 1)
+    {
+        invalid = true;
+    }
+    else
+    {
+        cout << "Great! You are now registered as a customer. Please proceed to login." << endl;
+        void returningCustomer();
+    }
 
-
+    while (invalid == true)
+    {
+        cout << "Error!" << endl;
+        cout << "Usernames will need to meet the following requirements: " << endl;
+        cout << "1. Between seven to ten characters long" << endl
+             << "2. One special character" << endl
+             << "3. Two numbers" << endl;
+        getline(cin, username);
+    }
 }
 
 void employee()
 {
-
+    cout << "Awesome! Hello Employee!" << endl;
+    return;
 }
