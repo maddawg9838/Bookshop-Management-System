@@ -136,11 +136,12 @@ void validateEmployee(int ID)
 {
     bool match = false;
     ifstream filename;
+    CONST_LINER = ",";
     
     filename.open("EmployeesInfo.txt");
     while (match != true)
     {
-        ifstream >> fileID;
+        ifstream >> employeeName >> fileID;
         if (fileID == ID)
         {
             match = true;
