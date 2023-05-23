@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 
 using namespace std;
@@ -7,7 +8,9 @@ using namespace std;
 void login();
 void returningCustomer();
 void newCustomer();
+void validateCustomer();
 void employee();
+void validateEmployee(int);
 
 // Global Variables
 bool invalid;
@@ -117,6 +120,36 @@ void newCustomer()
 
 void employee()
 {
-    cout << "Awesome! Hello Employee!" << endl;
-    return;
+    int ID;
+    
+    cout << "Awesome! Hello Employee! Please enter your unique employee ID" << endl;
+    /*
+    cout << "Employee ID: ";
+    cin >> ID;
+    
+    validateEmployee(ID);
+    */
 }
+
+/*
+void validateEmployee(int ID)
+{
+    bool match = false;
+    ifstream filename;
+    
+    filename.open("EmployeesInfo.txt");
+    while (match != true)
+    {
+        ifstream >> fileID;
+        if (fileID == ID)
+        {
+            match = true;
+            return true;
+        }
+        else
+        {
+            match = false
+        } 
+    }
+}
+*/
